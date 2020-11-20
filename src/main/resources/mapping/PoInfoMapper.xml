@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demospringboot.mapper.PoInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demospringboot.entity.PoInfo" >
+    <id column="POBH" property="pobh" jdbcType="VARCHAR" />
+    <result column="DQJDZT" property="dqjdzt" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    POBH, DQJDZT
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demospringboot.entity.PoInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from po_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from po_info
+    where POBH = #{pobh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from po_info
+    where POBH = #{pobh,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demospringboot.entity.PoInfoExample" >
+    delete from po_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demospringboot.entity.PoInfo" >
+    insert into po_info (POBH, DQJDZT)
+    values (#{pobh,jdbcType=VARCHAR}, #{dqjdzt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demospringboot.entity.PoInfo" >
+    insert into po_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pobh != null" >
+        POBH,
+      </if>
+      <if test="dqjdzt != null" >
+        DQJDZT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pobh != null" >
+        #{pobh,jdbcType=VARCHAR},
+      </if>
+      <if test="dqjdzt != null" >
+        #{dqjdzt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demospringboot.entity.PoInfoExample" resultType="java.lang.Integer" >
+    select count(*) from po_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update po_info
+    <set >
+      <if test="record.pobh != null" >
+        POBH = #{record.pobh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dqjdzt != null" >
+        DQJDZT = #{record.dqjdzt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update po_info
+    set POBH = #{record.pobh,jdbcType=VARCHAR},
+      DQJDZT = #{record.dqjdzt,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demospringboot.entity.PoInfo" >
+    update po_info
+    <set >
+      <if test="dqjdzt != null" >
+        DQJDZT = #{dqjdzt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where POBH = #{pobh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demospringboot.entity.PoInfo" >
+    update po_info
+    set DQJDZT = #{dqjdzt,jdbcType=VARCHAR}
+    where POBH = #{pobh,jdbcType=VARCHAR}
+  </update>
+</mapper>

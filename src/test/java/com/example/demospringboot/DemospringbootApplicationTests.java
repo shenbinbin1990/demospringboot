@@ -8,6 +8,7 @@ class DemospringbootApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("1234455");
     }
 
 }

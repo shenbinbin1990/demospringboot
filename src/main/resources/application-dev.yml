@@ -5,16 +5,18 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://localhost:3306/e3mall?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/node_test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
-  type-aliases-package: com.example.entity
-
+  type-aliases-package: com.example.demospringboot.entity
+  configuration:
+    cache-enabled: false  #开启mybatis 的二级缓存
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #showSql
 logging:
   level:
     com:
       example:
-        mapper : debug
+        demospringboot: warn

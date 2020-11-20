@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demospringboot.mapper.SysNodeMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demospringboot.entity.SysNode" >
+    <id column="NODE_ID" property="nodeId" jdbcType="VARCHAR" />
+    <result column="NODE_CODE" property="nodeCode" jdbcType="VARCHAR" />
+    <result column="NODE_NAMEC" property="nodeNamec" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    NODE_ID, NODE_CODE, NODE_NAMEC
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.example.demospringboot.entity.SysNodeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_node
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_node
+    where NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_node
+    where NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demospringboot.entity.SysNodeExample" >
+    delete from sys_node
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demospringboot.entity.SysNode" >
+    insert into sys_node (NODE_ID, NODE_CODE, NODE_NAMEC
+      )
+    values (#{nodeId,jdbcType=VARCHAR}, #{nodeCode,jdbcType=VARCHAR}, #{nodeNamec,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demospringboot.entity.SysNode" >
+    insert into sys_node
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nodeId != null" >
+        NODE_ID,
+      </if>
+      <if test="nodeCode != null" >
+        NODE_CODE,
+      </if>
+      <if test="nodeNamec != null" >
+        NODE_NAMEC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeCode != null" >
+        #{nodeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeNamec != null" >
+        #{nodeNamec,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demospringboot.entity.SysNodeExample" resultType="java.lang.Integer" >
+    select count(*) from sys_node
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_node
+    <set >
+      <if test="record.nodeId != null" >
+        NODE_ID = #{record.nodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nodeCode != null" >
+        NODE_CODE = #{record.nodeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nodeNamec != null" >
+        NODE_NAMEC = #{record.nodeNamec,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_node
+    set NODE_ID = #{record.nodeId,jdbcType=VARCHAR},
+      NODE_CODE = #{record.nodeCode,jdbcType=VARCHAR},
+      NODE_NAMEC = #{record.nodeNamec,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demospringboot.entity.SysNode" >
+    update sys_node
+    <set >
+      <if test="nodeCode != null" >
+        NODE_CODE = #{nodeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeNamec != null" >
+        NODE_NAMEC = #{nodeNamec,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demospringboot.entity.SysNode" >
+    update sys_node
+    set NODE_CODE = #{nodeCode,jdbcType=VARCHAR},
+      NODE_NAMEC = #{nodeNamec,jdbcType=VARCHAR}
+    where NODE_ID = #{nodeId,jdbcType=VARCHAR}
+  </update>
+</mapper>
