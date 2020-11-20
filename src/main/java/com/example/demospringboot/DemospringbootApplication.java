@@ -1,14 +1,14 @@
 package com.example.demospringboot;
 
-import com.example.demospringboot.entity.People;
-import com.example.demospringboot.entity.Teacher;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.beans.BeanUtils;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @EnableScheduling
 @MapperScan("com.example.demospringboot.mapper")
@@ -62,13 +62,10 @@ public class DemospringbootApplication implements ApplicationRunner {
 //        map.put("email","623565916@qq.com");
 //        BeanUtils.copyProperties(map,user);
 //        System.out.println(user);
-        Teacher teacher = new Teacher();
-//asdasd
-        People people = new People();
-        teacher.setAge(11);
-        teacher.setName("james");
-        BeanUtils.copyProperties(teacher,people);
-        System.out.println(people);
+        Map<Object,Object> map = new HashMap<>();
+        map.put("username","shenbinbin");
+        map.put("phone","13819126424");
+        map.put("email","623565916@qq.com");
 
     }
 //        userList.stream().sorted((user1,user2) -> user2.getId() - user1.getId()).limit(3).forEach(user -> System.out.println(user));
