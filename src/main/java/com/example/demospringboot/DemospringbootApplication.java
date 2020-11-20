@@ -8,14 +8,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-<<<<<<< Updated upstream
-=======
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
->>>>>>> Stashed changes
 @EnableScheduling
 @MapperScan("com.example.demospringboot.mapper")
 @SpringBootApplication
@@ -72,7 +69,7 @@ public class DemospringbootApplication implements ApplicationRunner {
         List<Integer> list = stream.filter(num -> (num % 2) == 1).sorted((num1, num2) -> num2 - num1).collect(Collectors.toList());
         list.stream().forEach(num -> System.out.println(num));
         List<TbUser> userList = new ArrayList<>();
-        //987456321
+        //123456
 
     }
 //        userList.stream().sorted((user1,user2) -> user2.getId() - user1.getId()).limit(3).forEach(user -> System.out.println(user));
