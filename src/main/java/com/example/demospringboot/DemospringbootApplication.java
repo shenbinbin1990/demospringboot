@@ -63,6 +63,7 @@ public class DemospringbootApplication implements ApplicationRunner {
 //        BeanUtils.copyProperties(map,user);
 //        System.out.println(user);
         Teacher teacher = new Teacher();
+//asdasd
         People people = new People();
         teacher.setAge(11);
         teacher.setName("james");
