@@ -62,10 +62,12 @@ public class DemospringbootApplication implements ApplicationRunner {
 //        map.put("email","623565916@qq.com");
 //        BeanUtils.copyProperties(map,user);
 //        System.out.println(user);
-        Map<Object,Object> map = new HashMap<>();
-        map.put("username","shenbinbin");
-        map.put("phone","13819126424");
-        map.put("email","623565916@qq.com");
+           TbUser user = null;
+        user = new TbUser("wade","33","Miami");
+        tbUserList.add(user);
+        user = new TbUser("james","31","Miami");
+        tbUserList.add(user);
+        user = new TbUser("AD","31","Miami");
 
     }
 //        userList.stream().sorted((user1,user2) -> user2.getId() - user1.getId()).limit(3).forEach(user -> System.out.println(user));
