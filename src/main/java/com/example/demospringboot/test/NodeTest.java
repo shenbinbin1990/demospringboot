@@ -53,6 +53,7 @@ public class NodeTest {
                         poInfoChoosed = poInfo;
                     }
                 }
+                //修改主分支上的同样的bug
                 //显示所选择事件的可能去向,提供选择.或者退出
                 List<String> goToList = nodeService.getGotoByStart(poInfoChoosed.getDqjdzt());
                 System.out.print("请选择事件的去向:  ");

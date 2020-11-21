@@ -70,7 +70,6 @@ public class DemospringbootApplication implements ApplicationRunner {
         list.stream().forEach(num -> System.out.println(num));
         List<TbUser> userList = new ArrayList<>();
         //123456
-//978987
 
     }
 //        userList.stream().sorted((user1,user2) -> user2.getId() - user1.getId()).limit(3).forEach(user -> System.out.println(user));
