@@ -60,6 +60,7 @@ public class NodeTest {
                 //进行操作,改变事件节点状态然后返回步骤4
                 poInfoChoosed.setDqjdzt(goToChoosed);
                 nodeService.updatePoInfoById(poInfoChoosed);
+//测试rebase
             }
 
         }
