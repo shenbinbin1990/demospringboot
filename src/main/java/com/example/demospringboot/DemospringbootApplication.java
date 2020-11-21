@@ -73,6 +73,7 @@ public class DemospringbootApplication implements ApplicationRunner {
         //25869
         //258369
         //进行了一些开发
+        //我要开发测试rebase
     }
 //        userList.stream().sorted((user1,user2) -> user2.getId() - user1.getId()).limit(3).forEach(user -> System.out.println(user));
 //          userList.stream().skip(2).limit(3).forEach(user -> System.out.println(user));
