@@ -20,7 +20,10 @@ public class NodeTest {
     private NodeService nodeService;
     @Test
     public void getUserByIdTest(){
+<<<<<<< HEAD
     //修改master同样存在的问题
+=======
+>>>>>>> dev
         System.out.println("开始:");
         Scanner scanner = new Scanner(System.in);
         while(true){
@@ -61,6 +64,7 @@ public class NodeTest {
                 //进行操作,改变事件节点状态然后返回步骤4
                 poInfoChoosed.setDqjdzt(goToChoosed);
                 nodeService.updatePoInfoById(poInfoChoosed);
+//测试rebase
             }
 
         }
