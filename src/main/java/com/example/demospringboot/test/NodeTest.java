@@ -22,6 +22,7 @@ public class NodeTest {
     public void getUserByIdTest(){
 //        SysRole sysRole = nodeService.selectByPrimaryKey("330000000");
 //        System.out.println(sysRole);
+//测试rebase
         System.out.println("开始:");
         Scanner scanner = new Scanner(System.in);
         while(true){
