@@ -20,8 +20,7 @@ public class NodeTest {
     private NodeService nodeService;
     @Test
     public void getUserByIdTest(){
-//        SysRole sysRole = nodeService.selectByPrimaryKey("330000000");
-//        System.out.println(sysRole);
+    //修改master同样存在的问题
         System.out.println("开始:");
         Scanner scanner = new Scanner(System.in);
         while(true){
