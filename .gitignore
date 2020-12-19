@@ -34,4 +34,3 @@ build/
 
 ### 配置yml文件 ###
 /src/main/resources/application-dev.yml
-/src/main/resources/application.yml
