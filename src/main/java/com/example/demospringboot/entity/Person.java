@@ -22,6 +22,6 @@ public class Person {
     private String id;
     private String name;
     @TableField(fill = FieldFill.INSERT)
-    private Date create;
-    private Date update;
+    private Date createTime;
+    private Date updateTime;
 };
