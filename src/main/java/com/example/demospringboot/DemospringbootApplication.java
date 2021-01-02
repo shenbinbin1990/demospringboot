@@ -16,7 +16,7 @@ public class DemospringbootApplication  {
     @Autowired
     private PersonMapper personMapper;
     public static void main(String[] args) {
-        SpringApplication.run(DemospringbootApplication.class, args);
+//        SpringApplication.run(DemospringbootApplication.class, args);
         System.out.println("12345");
     }
 
