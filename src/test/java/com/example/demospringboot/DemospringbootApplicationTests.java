@@ -13,6 +13,8 @@ class DemospringbootApplicationTests {
     @Test
     void contextLoads() {
         personMapper.insert(Person.builder().build());
+        Person person = new Person();
+
     }
 
 }

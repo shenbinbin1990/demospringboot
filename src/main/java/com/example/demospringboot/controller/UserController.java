@@ -5,12 +5,10 @@ import com.example.demospringboot.service.UserService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.annotation.Resource;
-import javax.validation.Valid;
 
 @ApiResponses({
         @ApiResponse(code = 400,message = "你错了"),
@@ -58,11 +56,7 @@ public class UserController {
     @ApiOperation("我是用户插入")
     @PostMapping(value = "/addUser")
     @ResponseBody
-    public String addUser(@Valid @RequestBody TbUser tbUser ,BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            System.out.println("110");
-            return bindingResult.getAllErrors().get(0).getDefaultMessage();
-        }
-        return tbUser.toString();
+    public TbUser addUser(@RequestBody TbUser tbUser){
+        return TbUser.builder().id(123).phone(true).build();
     }
 }
